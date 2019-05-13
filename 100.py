@@ -279,23 +279,49 @@
 '''
 	有n个整数，使其前面各数顺序向后移m个位置，最后m个数变成最前面的m个数
 '''
-if __name__ == '__main__':
-	n = int(input('整数 n 为:\n'))
-	m = int(input('向后移 m 个位置为:\n'))
+# if __name__ == '__main__':
+# 	n = int(input('整数 n 为:\n'))
+# 	m = int(input('向后移 m 个位置为:\n'))
  
-	def move(array, n, m):
-		array_end = array[n - 1]
-		for i in range(n - 1,-1,- 1):
-			array[i] = array[i - 1]
-		array[0] = array_end
-		m -= 1
-		if m > 0:move(array, n, m)
-		
+# 	def move(array, n, m):
+# 		array_end = array[n - 1]
+# 		for i in range(n - 1,-1,- 1):
+# 			array[i] = array[i - 1]
+# 		array[0] = array_end
+# 		m -= 1
+# 		if m > 0:move(array, n, m)
+
+# 	number = []
+# 	for i in range(n):
+# 		number.append(int(input('输入一个数字:\n')))
+# 	print('原始列表:', number)
+# 	move(number, n, m)
+# 	print('移动之后:', number)
+
+if __name__ == "__main__":
 	number = []
+	n = int(input('请输入整数个数：'))
+	l = int(input('请输入移动的位置个数:'))
+	l = l % n
 	for i in range(n):
-		number.append(int(input('输入一个数字:\n')))
-	print('原始列表:', number)
-		
-	move(number, n, m)
-		
-	print('移动之后:', number)
+		number.append(int(input('请输入一个数字:')))
+	print(number)
+	# move numbers
+	# for i in range(l):
+	# 	# 第一种方法，数组拼接
+	# 	# last = number[n-1] # 最后一个数
+	# 	# number = [last] + number[:n-1]
+
+	# 	# 第二种方法，数组元素交换
+	# 	nl = len(number)
+	# 	while nl > 1 :
+	# 		number[nl-2], number[nl-1] = number[nl-1], number[nl-2]
+	# 		nl = nl-1
+	
+	# 第三种方法
+	new_num = []
+	for i in range(l, n):
+		new_num.append(number[i])
+	new_num += number[:l]
+
+	print(new_num)
